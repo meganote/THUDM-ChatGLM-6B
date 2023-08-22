@@ -8,7 +8,7 @@ CUDA_LAUNCH_BLOCKING=1
 NVIDIA_VISIBLE_DEVICES=all
 
 # Web
-CMD=/workspace/THUDM/ChatGLM-6B/web_demo.py
+CMD="/workspace/THUDM/ChatGLM-6B/chatglm_service_fastapi.py --port 8000"
 
 # API
 #CMD=/workspace/THUDM/ChatGLM-6B/api.py
@@ -19,4 +19,5 @@ docker run -d -it --restart=always --shm-size=10g -p 8000:8000 \
   -e NVIDIA_VISIBLE_DEVICES=${NVIDIA_VISIBLE_DEVICES} -e CUDA_LAUNCH_BLOCKING=${CUDA_LAUNCH_BLOCKING} \
   -v /var/cache/fscache/chatglm-6b:/workspace/THUDM/chatglm-6b:ro \
   -v /var/cache/fscache/chatglm-6b/ice_text.model:/root/.icetk_models/ice_text.model \
+  -v /home/apps/ChatGLM-6B/THUDM-ChatGLM-6B-main:/workspace/THUDM/ChatGLM-6B \
   jt-llm/chatglm-6b:v1.0.0 $CMD

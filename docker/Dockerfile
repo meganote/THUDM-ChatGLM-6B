@@ -14,7 +14,10 @@ RUN pip install --no-cache-dir \
     cpm_kernels \
     gradio \
     mdtex2html \
-    sentencepiece
+    sentencepiece \
+    fastApi \
+    sse-starlette \
+    unicorn
 
 ADD . /workspace/THUDM/ChatGLM-6B
 
